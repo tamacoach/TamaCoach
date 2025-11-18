@@ -1,0 +1,70 @@
+# Obsidian 설정 파일 (로컬 설정만 무시)
+.obsidian/workspace.json
+.obsidian/appearance.json
+.obsidian/hotkeys.json
+.obsidian/graph.json
+.obsidian/core-plugins-migration.json
+.obsidian/plugins/*/data.json
+.obsidian/community-plugins.json
+
+# Obsidian 캐시 및 임시 파일
+.obsidian/cache/
+.obsidian/.DS_Store
+
+# OS 파일
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 에디터 설정 (개인 설정)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# 시스템 파일
+desktop.ini
+.directory
+
+# 로컬 환경 설정
+.env
+.env.local
+*.local
+
+# 노드 모듈 (플러그인 개발용)
+node_modules/
+package-lock.json
+yarn.lock
+
+# 빌드 및 배포
+dist/
+build/
+*.log
+
+# 임시 파일
+*.tmp
+*.bak
+*.swp
+*~
+.~*
+
+# 개인 비밀 및 민감한 정보
+# (패스워드, API 키, 개인 연락처 등)
+secrets.md
+.secrets
+*.key
+*.pem
+
+# iCloud 시스템 파일
+.icloud
+*.icloud
+
+# Windows 시스템 파일
+$RECYCLE.BIN/
