@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 프로필 카드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 120px;
+            position: relative;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid white;
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-content {
+            text-align: center;
+            padding: 80px 30px 30px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 25px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .profile-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+        }
+
+        .profile-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .social-icon:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="history.back()">← 돌아가기</button>
+
+    <div class="profile-card">
+        <div class="profile-header"></div>
+
+        <div class="profile-avatar" id="avatar">👤</div>
+
+        <div class="profile-content">
+            <h1 class="profile-name" id="profileName">John Doe</h1>
+            <p class="profile-title" id="profileTitle">Web Developer</p>
+            <p class="profile-bio" id="profileBio">창의적이고 혁신적인 웹 개발자입니다. 최신 기술을 배우고 프로젝트를 만드는 것을 즐깁니다.</p>
+
+            <div class="profile-stats">
+                <div class="stat">
+                    <span class="stat-number" id="statProjects">24</span>
+                    <span class="stat-label">프로젝트</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="statFollowers">1.2K</span>
+                    <span class="stat-label">팔로워</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="statRating">4.8</span>
+                    <span class="stat-label">평점</span>
+                </div>
+            </div>
+
+            <div class="profile-buttons">
+                <button class="btn btn-primary" onclick="followProfile()">팔로우</button>
+                <button class="btn btn-secondary" onclick="messageProfile()">메시지</button>
+            </div>
+
+            <div class="profile-social">
+                <div class="social-icon" onclick="openLink('github')">📱</div>
+                <div class="social-icon" onclick="openLink('twitter')">🐦</div>
+                <div class="social-icon" onclick="openLink('linkedin')">💼</div>
+                <div class="social-icon" onclick="openLink('email')">✉️</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 프로필 데이터
+        const profileData = {
+            name: 'John Doe',
+            title: 'Web Developer',
+            bio: '창의적이고 혁신적인 웹 개발자입니다. 최신 기술을 배우고 프로젝트를 만드는 것을 즐깁니다.',
+            avatar: '👨‍💻',
+            stats: {
+                projects: 24,
+                followers: '1.2K',
+                rating: 4.8
+            },
+            social: {
+                github: 'https://github.com',
+                twitter: 'https://twitter.com',
+                linkedin: 'https://linkedin.com',
+                email: 'mailto:john@example.com'
+            }
+        };
+
+        // 프로필 정보 업데이트
+        function updateProfile(data) {
+            document.getElementById('profileName').textContent = data.name;
+            document.getElementById('profileTitle').textContent = data.title;
+            document.getElementById('profileBio').textContent = data.bio;
+            document.getElementById('avatar').textContent = data.avatar;
+            document.getElementById('statProjects').textContent = data.stats.projects;
+            document.getElementById('statFollowers').textContent = data.stats.followers;
+            document.getElementById('statRating').textContent = data.stats.rating;
+        }
+
+        // 팔로우 버튼
+        function followProfile() {
+            const btn = event.target;
+            if (btn.textContent === '팔로우') {
+                btn.textContent = '팔로워 됨';
+                btn.style.background = '#f0f0f0';
+                btn.style.color = '#333';
+            } else {
+                btn.textContent = '팔로우';
+                btn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                btn.style.color = 'white';
+            }
+        }
+
+        // 메시지 버튼
+        function messageProfile() {
+            alert('메시지 기능이 활성화되었습니다!');
+        }
+
+        // 소셜 링크 열기
+        function openLink(platform) {
+            const link = profileData.social[platform];
+            if (link) {
+                if (platform === 'email') {
+                    window.location.href = link;
+                } else {
+                    window.open(link, '_blank');
+                }
+            }
+        }
+
+        // 초기화
+        updateProfile(profileData);
+    </script>
+</body>
+</html>
