@@ -1,0 +1,51 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/recent-files-obsidian/data.json
+.obsidian/cache
+.obsidian/graph.json
+
+# Obsidian - 선택적 제외 (개인 설정)
+# .obsidian/
+
+# 시스템 파일
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# iCloud 동기화 충돌 파일
+*conflicted*
+*.icloud
+
+# 임시 파일
+*.tmp
+*.temp
+~$*
+*.swp
+*.swo
+
+# 백업 파일
+*.bak
+*.backup
+
+# 로그 파일
+*.log
+
+# Node modules (플러그인 개발 시)
+node_modules/
+
+# 대용량 미디어 파일 (선택사항)
+# *.mp4
+# *.mov
+# *.avi
+# *.mp3
+# *.wav
+
+# 개인 정보가 포함될 수 있는 파일
+*.env
+.env.*
